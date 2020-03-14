@@ -20,7 +20,7 @@ class EventsIndex extends Component {
     ))
   }
   render() {
-    const props = this.props
+    // const props = this.props
 
     return (
       // <React.Fragment>
