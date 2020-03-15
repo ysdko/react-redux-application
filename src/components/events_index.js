@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { readEvents } from '../actions'
 
@@ -14,9 +14,8 @@ class EventsIndex extends Component {
     return _.map(this.props.events, event => (
       <tr key={event.id}>
         <td>{event.id}</td>
-
         <td>
-          <Link to={`/events/${event.id}`} >
+          <Link to={`/events/${event.id}`}>
             {event.title}
           </Link>
         </td>
@@ -24,36 +23,32 @@ class EventsIndex extends Component {
       </tr>
     ))
   }
+
   render() {
-    // const props = this.props
-
     return (
-      // <React.Fragment>
-      //   <div>{console.log(props.events)}</div>
-      // </React.Fragment>
       <React.Fragment>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Body</th>
-          </tr>
-        </thead>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Body</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {this.renderEvents()}
-        </tbody>
-      </table>
+          <tbody>
+            {this.renderEvents()}
+          </tbody>
+        </table>
 
-      <Link to="/events/new">New Event</Link>
-      </ React.Fragment>
+        <Link to="/events/new">New Event</Link>
+      </React.Fragment>
     )
   }
 }
 
-const mapStateToProps = state => ({events: state.events})
+const mapStateToProps = state => ({ events: state.events })
 
-const mapDispatchToProps = ({readEvents})
-  
+const mapDispatchToProps = ({ readEvents })
+
 export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)
